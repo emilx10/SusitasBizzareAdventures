@@ -202,9 +202,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _currentHealth: 0
-  _heatDamage: 0.05
   _chillTime: 5
-  _heatDamageRepeatTime: 1
+  _heat: 0
+  _heatImmunity: 0
+  _restChill: 1
+  _maxSpeedHeat: 2
+  _extinguisherChill: 20
+  _extinguisherImmunityTime: 10
+  _overheatTime: 2
+  _postOverheat: 60
+  _heatUI: {fileID: 7947766183750455896}
 --- !u!114 &1385243623899711688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,7 +903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752336424443475129}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.031610884, y: -2.3568556, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

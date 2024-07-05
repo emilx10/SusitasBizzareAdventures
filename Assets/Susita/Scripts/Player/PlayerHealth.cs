@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : EntityHealth
 {
@@ -8,9 +9,11 @@ public class PlayerHealth : EntityHealth
 
     [SerializeField] private float _chillTime;
 
-    [SerializeField][ReadOnly]private float _heat, _heatImmunity;
+    [SerializeField][ReadOnly] private float _heat, _heatImmunity;
     [SerializeField] private float _restChill, _maxSpeedHeat, _extinguisherChill, _extinguisherImmunityTime, _overheatTime, _postOverheat;
     private float _maxHeat = 100;
+
+    [SerializeField] private Image _heatUI;
 
     void Start()
     {
@@ -41,7 +44,7 @@ public class PlayerHealth : EntityHealth
         {
             _heat += _maxSpeedHeat * engineHeat * Time.deltaTime;
         }
-        else
+        else if (engineHeat <= 0)
         {
             _heat -= _restChill * Time.deltaTime;
         }
@@ -52,6 +55,7 @@ public class PlayerHealth : EntityHealth
         }
 
         _heat = Mathf.Clamp(_heat, 0, _maxHeat);
+        _heatUI.fillAmount = _heat/ _maxHeat;
     }
 
     private IEnumerator OverHeat()
@@ -61,7 +65,7 @@ public class PlayerHealth : EntityHealth
         while (_timeLeft > 0) 
         {
             _timeLeft-=Time.deltaTime;
-            _heat = Mathf.Lerp(_heat, _postOverheat, _overheatTime - _timeLeft);
+            _heat = Mathf.Lerp(_postOverheat, _maxHeat, _timeLeft/ _overheatTime);
             yield return null;
         }
         _playerMovement.RemoveSpeedModifier("Heat");

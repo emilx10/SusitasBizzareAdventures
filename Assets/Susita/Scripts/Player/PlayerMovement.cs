@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateCar()
     {
-        _rb.AddTorque(_horizontal * _turnSpeed * Time.fixedDeltaTime);
+        _rb.AddTorque(_horizontal * _turnSpeed * Time.fixedDeltaTime * _speedMultiplier);
     }
 
     private void PlayerRunOver()
@@ -133,9 +133,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void LoseRotation()
     {
-        if (Mathf.Abs(_rb.angularVelocity) > _maxTurnSpeed)
+        if (Mathf.Abs(_rb.angularVelocity) > _maxTurnSpeed * _speedMultiplier)
         {
-            _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * _maxTurnSpeed;
+            _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * _maxTurnSpeed * _speedMultiplier;
         }
         _rb.angularDrag = _horizontal == 0 ? _turnSpeedLose : 0;
     }
