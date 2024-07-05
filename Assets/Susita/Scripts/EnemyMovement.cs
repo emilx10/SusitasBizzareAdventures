@@ -8,13 +8,15 @@ public class EnemyFollowMovement : MonoBehaviour
 
     private GameManager _gameManager;
 
-    [SerializeField] private GameObject _playerObject;
+    private GameObject _playerObject;
 
     [SerializeField] private float _speed = 5f;
 
     private bool _isMoving = true;
 
     [SerializeField] float _pauseDuration;
+
+    [SerializeField] private float _damage;
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class EnemyFollowMovement : MonoBehaviour
             _isMoving = false;
             _rb.velocity = Vector2.zero;
             _rb.angularVelocity = 0f;
+            collision.gameObject.GetComponent<EntityHealth>().TakeDamage(_damage);
             StartCoroutine(MovementPause());
         }
     }

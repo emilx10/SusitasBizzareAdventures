@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
-    private int _health;
+    [SerializeField] protected float _maxHealth;
+    [SerializeField][ReadOnly] protected float _currentHealth;
 
-    private void TakingDamage(int health , int damage)
+   public void TakeDamage(float damage)
+   {
+        _currentHealth -= damage;
+   }
+
+    public float GetHealthPercentage()
     {
-        health-=damage;
+        return _currentHealth/ _maxHealth;
     }
 }
