@@ -214,6 +214,7 @@ MonoBehaviour:
   _smokeMult: 0.1
   _heatUI: {fileID: 7947766183750455896}
   _carryUI: {fileID: 5990902974814685396}
+  _healthUI: {fileID: 1753411453492515686}
   _smoke: {fileID: 8814034778116955929}
 --- !u!114 &1385243623899711688
 MonoBehaviour:
@@ -5529,7 +5530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 23, y: -18}
+  m_AnchoredPosition: {x: 50, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2347353394239504006
@@ -11133,7 +11134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -901.1809, y: 372.70563}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 117.6383, y: 334.5887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1081582419984748798

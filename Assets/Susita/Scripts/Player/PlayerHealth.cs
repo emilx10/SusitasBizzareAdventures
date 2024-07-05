@@ -16,6 +16,8 @@ public class PlayerHealth : EntityHealth
 
     [SerializeField] private Image _carryUI;
 
+    [SerializeField] private Image _healthUI;
+
     [SerializeField] private ParticleSystem _smoke;
 
     void Start()
@@ -71,6 +73,7 @@ public class PlayerHealth : EntityHealth
 
         _heat = Mathf.Clamp(_heat, 0, _maxHeat);
         _heatUI.fillAmount = _heat/ _maxHeat;
+        _healthUI.fillAmount = _currentHealth / _maxHealth;
     }
 
     private IEnumerator OverHeat()
