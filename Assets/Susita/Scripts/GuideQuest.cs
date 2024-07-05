@@ -1,10 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuideQuest : MonoBehaviour
 {
     [SerializeField] private TMP_Text _guideText;
+    [SerializeField] private Image _bubbleText;
     [SerializeField] private string _askForHelpText;
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
@@ -18,6 +20,7 @@ public class GuideQuest : MonoBehaviour
     [SerializeField] private LambPickUp _lamb; // Ensure these are assigned in the Inspector
     [SerializeField] private Sprite _lambSprite;
     [SerializeField] private GameObject _exit;
+    [SerializeField] private GameObject _exitStone;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +51,7 @@ public class GuideQuest : MonoBehaviour
 
     private void SpawnExit()
     {
+        Destroy(_exitStone);
         _exit.SetActive(true);
     }
 
@@ -98,6 +102,7 @@ public class GuideQuest : MonoBehaviour
         public override void OnStart()
         {
             _guideQuest._guideText.text = _guideQuest._askForHelpText;
+            _guideQuest._bubbleText.enabled = false;
             _guideQuest.SpawnLamb();
             _guideQuest._onUpdateEvent = null;
             _guideQuest.OnLambCollect = () => _guideQuest.SetState(new StateReturnLambToGuide(_guideQuest));

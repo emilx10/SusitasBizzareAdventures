@@ -8,6 +8,7 @@ TagManager:
   - PickUp
   - Tree
   - Mud
+  - Exit
   layers:
   - Default
   - TransparentFX

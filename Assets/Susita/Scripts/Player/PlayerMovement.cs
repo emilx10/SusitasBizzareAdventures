@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float _speedMultiplier = 1f;
     private float _targetSpeedMultiplier = 1f;
     private Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
+    [SerializeField] private GameObject _exitPoint;
 
     void Start()
     {
@@ -164,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Mud"))
         {
             AddSpeedModifier("Mud", _mudModifier); // Example modifier for mud
+        }
+
+        if (collision.gameObject.CompareTag("Exit"))
+        {
+            SceneManager.LoadScene("EndGameScene");
         }
     }
 
