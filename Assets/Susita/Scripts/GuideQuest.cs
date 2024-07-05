@@ -9,10 +9,11 @@ public class GuideQuest : MonoBehaviour
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
     private Transform _player;
-    private float _range = 5f; // Example range value, you can adjust this
+    [SerializeField] private float _range = 5f; // Example range value, you can adjust this
     private Action _onUpdateEvent;
     public Action OnLambCollect;
     private State _currentState;
+    [SerializeField] private Transform[] _lambLocations;
     [SerializeField] private LambPickUp _lamb; // Ensure these are assigned in the Inspector
     [SerializeField] private GameObject _exit;
 
@@ -37,6 +38,7 @@ public class GuideQuest : MonoBehaviour
 
     private void SpawnLamb()
     {
+        _lamb.transform.position = _lambLocations[UnityEngine.Random.Range(0, _lambLocations.Length)].position;
         _lamb.gameObject.SetActive(true);
         _lamb.SetGuideQuest(this);
     }

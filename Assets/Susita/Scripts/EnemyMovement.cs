@@ -14,7 +14,11 @@ public class EnemyFollowMovement : MonoBehaviour
 
     [SerializeField] private float _speed = 5f;
 
-    private bool _isMoving = true;
+    private bool _isMoving = false;
+
+    private bool _chase = false;
+
+    [SerializeField] private float _range = 3f;
 
     [SerializeField] float _pauseDuration;
 
@@ -25,6 +29,18 @@ public class EnemyFollowMovement : MonoBehaviour
         _playerHealth = _gameManager.GetPlayerHealth();
     }
 
+
+    private void Update()
+    {
+        if (!_chase)
+        {
+            if (Vector2.Distance(transform.position,_playerHealth.transform.position) <= _range)
+            {
+                _chase = true;
+                _isMoving = true;
+            }
+        }
+    }
 
     void FixedUpdate()
     {

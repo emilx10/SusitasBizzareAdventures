@@ -137,6 +137,8 @@ MonoBehaviour:
   _movementSpeedLose: 1
   _maxMovementSpeed: 5
   _runOverSpeed: 1
+  _reverseModifier: 0.5
+  _mudModifier: 0.3
   _runOverCollider: {fileID: 5283541056863700437}
   _turnSpeed: 100
   _turnSpeedLose: 5

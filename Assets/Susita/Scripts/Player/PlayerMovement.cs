@@ -1,28 +1,30 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D _rb => GetComponent<Rigidbody2D>();
+    private Rigidbody2D _rb;
 
     [Header("Movement")]
     [SerializeField] private float _movementSpeed;
     [SerializeField][ReadOnly] private float _currentSpeed;
-    [SerializeField] private float _movementSpeedAccel, _movementSpeedLose, _maxMovementSpeed , _runOverSpeed;
+    [SerializeField] private float _movementSpeedAccel, _movementSpeedLose, _maxMovementSpeed, _runOverSpeed, _reverseModifier, _mudModifier;
     [SerializeField] private Collider2D _runOverCollider;
     [Header("Rotation")]
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _turnSpeedLose, _maxTurnSpeed;
     private float _vertical, _horizontal;
+    private float _speedMultiplier = 1f;
+    private float _targetSpeedMultiplier = 1f;
+    private Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -40,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         _currentSpeed += _vertical * _movementSpeedAccel * Time.fixedDeltaTime;
-        _rb.velocity = transform.up * _currentSpeed * _movementSpeed;
+        float effectiveSpeedMultiplier = _speedMultiplier * (_currentSpeed > 0 ? 1 : _reverseModifier);
+        _rb.velocity = transform.up * _currentSpeed * _movementSpeed * effectiveSpeedMultiplier;
     }
 
     private void RotateCar()
@@ -63,9 +66,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_currentSpeed > 1)
             {
-                _currentSpeed -= _movementSpeedLose*Time.deltaTime;
+                _currentSpeed -= _movementSpeedLose * Time.deltaTime;
             }
-            else if (_currentSpeed < -1) 
+            else if (_currentSpeed < -1)
             {
                 _currentSpeed += _movementSpeedLose * Time.deltaTime;
             }
@@ -74,6 +77,53 @@ public class PlayerMovement : MonoBehaviour
                 _currentSpeed = 0;
             }
         }
+    }
+
+    public void AddSpeedModifier(string modifierName, float modifierValue)
+    {
+        if (!_speedModifiers.ContainsKey(modifierName))
+        {
+            _speedModifiers.Add(modifierName, modifierValue);
+            UpdateSpeedMultiplier();
+        }
+    }
+
+    public void RemoveSpeedModifier(string modifierName)
+    {
+        if (_speedModifiers.ContainsKey(modifierName))
+        {
+            _speedModifiers.Remove(modifierName);
+            UpdateSpeedMultiplier();
+        }
+    }
+
+    private void UpdateSpeedMultiplier()
+    {
+        _targetSpeedMultiplier = 1f;
+        foreach (float modifierValue in _speedModifiers.Values)
+        {
+            _targetSpeedMultiplier *= modifierValue;
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(LerpSpeedMultiplier(_speedMultiplier, _targetSpeedMultiplier, 1f));
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator LerpSpeedMultiplier(float startValue, float endValue, float duration)
+    {
+        float time = 0f;
+        while (time < duration)
+        {
+            _speedMultiplier = Mathf.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        _speedMultiplier = endValue;
     }
 
     private void LoseRotation()
@@ -99,6 +149,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 pickup.Collect();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mud"))
+        {
+            AddSpeedModifier("Mud", _mudModifier); // Example modifier for mud
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mud"))
+        {
+            RemoveSpeedModifier("Mud");
         }
     }
 }
