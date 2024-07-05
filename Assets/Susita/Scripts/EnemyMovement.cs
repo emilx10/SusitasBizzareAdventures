@@ -16,7 +16,6 @@ public class EnemyFollowMovement : MonoBehaviour
 
     [SerializeField] float _pauseDuration;
 
-    [SerializeField] private float _damage;
 
     void Start()
     {
