@@ -8,7 +8,7 @@ public class EnemyFollowMovement : MonoBehaviour
 
     private GameManager _gameManager;
 
-    private GameObject _playerObject;
+    private PlayerHealth _playerHealth;
 
     [SerializeField] private float _speed = 5f;
 
@@ -21,7 +21,7 @@ public class EnemyFollowMovement : MonoBehaviour
     void Start()
     {
         _gameManager = GameManager.Instance;
-        _playerObject = _gameManager.GetPlayer();
+        _playerHealth = _gameManager.GetPlayerHealth();
     }
 
 
@@ -40,7 +40,7 @@ public class EnemyFollowMovement : MonoBehaviour
 
     private Vector2 CalculateDirection()
     {
-        Vector2 direction = (_playerObject.transform.position - transform.position).normalized;
+        Vector2 direction = (_playerHealth.transform.position - transform.position).normalized;
         return direction;
     }
 
@@ -59,7 +59,7 @@ public class EnemyFollowMovement : MonoBehaviour
             _isMoving = false;
             _rb.velocity = Vector2.zero;
             _rb.angularVelocity = 0f;
-            collision.gameObject.GetComponent<EntityHealth>().TakeDamage(_damage);
+            _playerHealth.TakeDamage(_damage);
             StartCoroutine(MovementPause());
         }
     }

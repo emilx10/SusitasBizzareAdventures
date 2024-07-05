@@ -6,14 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private GameObject _player;
+    [SerializeField] private PlayerHealth _player;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public GameObject GetPlayer()
+    public PlayerHealth GetPlayerHealth()
     {
         return _player;
     }
