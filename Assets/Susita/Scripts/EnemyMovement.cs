@@ -43,6 +43,15 @@ public class EnemyFollowMovement : MonoBehaviour
         Vector2 direction = (_playerObject.transform.position - transform.position).normalized;
         return direction;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

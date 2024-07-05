@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8713954775654539866}
   - component: {fileID: 8362408567963799144}
   - component: {fileID: 1385243623899711688}
+  - component: {fileID: 5283541056863700437}
   m_Layer: 0
   m_Name: SUSITA03
   m_TagString: Player
@@ -135,6 +136,8 @@ MonoBehaviour:
   _movementSpeedAccel: 2.5
   _movementSpeedLose: 1
   _maxMovementSpeed: 5
+  _runOverSpeed: 1
+  _runOverCollider: {fileID: 5283541056863700437}
   _turnSpeed: 100
   _turnSpeedLose: 5
   _maxTurnSpeed: 100
@@ -170,7 +173,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.024496675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.52, y: 0.64}
+  m_Size: {x: 0.52, y: 0.59100664}
   m_EdgeRadius: 0
 --- !u!114 &8362408567963799144
 MonoBehaviour:
@@ -226,6 +229,51 @@ MonoBehaviour:
     Forward: {fileID: 21300000, guid: 3f0cff6a47883fa4fac41c6238a97dbd, type: 3}
     Left: {fileID: 21300000, guid: c0d1f0899f9d6ed4192129b563200fa8, type: 3}
     Right: {fileID: 21300000, guid: 3d43d5858916b634f80276c822ad1e93, type: 3}
+--- !u!61 &5283541056863700437
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177378024614559898}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.30358964}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.52, y: 0.64}
+    newSize: {x: 0.52, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.41836518, y: 0.058502197}
+  m_EdgeRadius: 0
 --- !u!1 &1771306022221855996
 GameObject:
   m_ObjectHideFlags: 0

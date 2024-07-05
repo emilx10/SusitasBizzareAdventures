@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float _movementSpeed;
     [SerializeField][ReadOnly] private float _currentSpeed;
-    [SerializeField] private float _movementSpeedAccel, _movementSpeedLose, _maxMovementSpeed;
+    [SerializeField] private float _movementSpeedAccel, _movementSpeedLose, _maxMovementSpeed , _runOverSpeed;
+    [SerializeField] private Collider2D _runOverCollider;
     [Header("Rotation")]
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _turnSpeedLose, _maxTurnSpeed;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         LoseMovementSpeed();
         LoseRotation();
+        PlayerRunOver();
     }
 
     private void FixedUpdate()
@@ -44,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
     private void RotateCar()
     {
         _rb.AddTorque(_horizontal * _turnSpeed * Time.fixedDeltaTime);
+    }
+
+    private void PlayerRunOver()
+    {
+        _runOverCollider.enabled = _currentSpeed >= _runOverSpeed;
     }
 
     private void LoseMovementSpeed()
