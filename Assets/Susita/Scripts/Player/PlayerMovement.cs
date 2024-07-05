@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D _rb;
+    private Rigidbody2D _rb => GetComponent<Rigidbody2D>();
+    private Animator _animator => _rb.GetComponent<Animator>();
+
     [Header("Movement")]
     [SerializeField] private float _movementSpeed;
     [SerializeField][ReadOnly] private float _currentSpeed;
@@ -17,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -70,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LoseRotation()
     {
+        _animator.SetFloat("Rotate", _rb.angularVelocity);
         if (Mathf.Abs(_rb.angularVelocity) > _maxTurnSpeed)
         {
             _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * _maxTurnSpeed;
