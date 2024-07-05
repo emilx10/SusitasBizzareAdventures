@@ -90,4 +90,15 @@ public class PlayerMovement : MonoBehaviour
         _vertical = Input.GetAxis("Vertical");
         _horizontal = -Input.GetAxis("Horizontal");
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            if (collision.gameObject.TryGetComponent<Pickup>(out Pickup pickup))
+            {
+                pickup.Collect();
+            }
+        }
+    }
 }

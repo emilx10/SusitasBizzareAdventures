@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityHealth : MonoBehaviour
+public abstract class EntityHealth : MonoBehaviour
 {
     [SerializeField] protected float _maxHealth;
     [SerializeField][ReadOnly] protected float _currentHealth;

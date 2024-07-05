@@ -24,7 +24,7 @@ public class PlayerHealth : EntityHealth
     }
 
     [ContextMenu("Chill Bruh")]
-    private void HappyHappyJoyJoy()
+    public void Chill()
     {
         CancelInvoke(nameof(OverHeating));
         InvokeRepeating(nameof(OverHeating), 10, 1);
