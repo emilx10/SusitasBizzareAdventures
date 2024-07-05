@@ -9,19 +9,22 @@ public class GuideQuest : MonoBehaviour
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
     private Transform _player;
+    private PlayerHealth _playerHealth;
     [SerializeField] private float _range = 5f; // Example range value, you can adjust this
     private Action _onUpdateEvent;
     public Action OnLambCollect;
     private State _currentState;
     [SerializeField] private Transform[] _lambLocations;
     [SerializeField] private LambPickUp _lamb; // Ensure these are assigned in the Inspector
+    [SerializeField] private Sprite _lambSprite;
     [SerializeField] private GameObject _exit;
 
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = GameManager.Instance;
-        _player = _gameManager.GetPlayerHealth().transform;
+        _playerHealth = _gameManager.GetPlayerHealth();
+        _player = _playerHealth.transform;
         SetState(new StateFindGuide(this));
     }
 
@@ -116,6 +119,7 @@ public class GuideQuest : MonoBehaviour
         {
             _guideQuest._onUpdateEvent = OnUpdate;
             _guideQuest._guideText.text = string.Empty;
+            _guideQuest._playerHealth.SetCarry(_guideQuest._lambSprite);
         }
 
         public override void OnUpdate()
@@ -126,6 +130,7 @@ public class GuideQuest : MonoBehaviour
                 _guideQuest._onUpdateEvent = null;
                 _guideQuest.SpawnExit();
                 _guideQuest._guideText.text = _guideQuest._thankForHelpText;
+                _guideQuest._playerHealth.ClearCarry();
             }
         }
     }

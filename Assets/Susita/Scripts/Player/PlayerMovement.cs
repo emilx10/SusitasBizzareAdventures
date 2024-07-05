@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         _horizontal = -Input.GetAxis("Horizontal");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PickUp"))
         {
@@ -155,10 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 pickup.Collect();
             }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.gameObject.CompareTag("Mud"))
         {
             AddSpeedModifier("Mud", _mudModifier); // Example modifier for mud

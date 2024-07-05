@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +9,12 @@ public class PlayerHealth : EntityHealth
     [SerializeField] private float _chillTime;
 
     [SerializeField][ReadOnly] private float _heat, _heatImmunity;
-    [SerializeField] private float _restChill, _maxSpeedHeat, _extinguisherChill, _extinguisherImmunityTime, _overheatTime, _postOverheat;
+    [SerializeField] private float _restChill, _maxSpeedHeat, _overheatTime, _postOverheat;
     private float _maxHeat = 100;
 
     [SerializeField] private Image _heatUI;
+
+    [SerializeField] private Image _carryUI;
 
     void Start()
     {
@@ -29,6 +30,15 @@ public class PlayerHealth : EntityHealth
     private void HealPlayer()
     {
         _currentHealth = _maxHealth;
+    }
+
+    public void HealPlayerAmount(float amount)
+    {
+        _currentHealth += amount;
+        if (_currentHealth > _maxHealth) 
+        {
+            _currentHealth= _maxHealth;
+        }
     }
 
     private void HandleHeat()
@@ -73,11 +83,27 @@ public class PlayerHealth : EntityHealth
 
 
     [ContextMenu("Chill Bruh")]
-    public void Chill()
+    private void Chill()
     {
-        _heat -= _extinguisherChill;
-        _heatImmunity = _extinguisherImmunityTime;
+        _heat = 0;
     }
 
-    
+    public void ChillAmount(float chillAmount, float immunityTime) 
+    {
+        _heat -= chillAmount;
+        _heatImmunity = immunityTime;
+    }
+
+    public void SetCarry(Sprite sprite)
+    {
+        _carryUI.sprite = sprite;
+        _carryUI.gameObject.SetActive(true);
+    }
+
+    public void ClearCarry()
+    {
+        _carryUI.sprite = null;
+        _carryUI.gameObject.SetActive(false);
+    }
+
 }
