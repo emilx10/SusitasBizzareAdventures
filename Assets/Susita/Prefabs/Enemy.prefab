@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 150
   _pauseDuration: 2
-  _damage: 1
 --- !u!61 &808286448488009501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -187,4 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8cda3b55729d24597df15481787f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _damage: 1
