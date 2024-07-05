@@ -6,6 +6,8 @@ public class EnemyFollowMovement : MonoBehaviour
 {
     private Rigidbody2D _rb => GetComponent<Rigidbody2D>();
 
+    private Animator _animator => GetComponent<Animator>(); 
+
     private GameManager _gameManager;
 
     private PlayerHealth _playerHealth;
@@ -28,6 +30,8 @@ public class EnemyFollowMovement : MonoBehaviour
     {
         if(_isMoving)
           FollowPlayer();
+
+        _animator.SetBool("Moving",_isMoving);
     }
 
     private void FollowPlayer()
