@@ -51,22 +51,17 @@ public class EnemyFollowMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            _isMoving = false;
-            _rb.velocity = Vector2.zero;
-            _rb.angularVelocity = 0f;
-            _playerHealth.TakeDamage(_damage);
-            StartCoroutine(MovementPause());
-        }
-    }
     private IEnumerator MovementPause()
     {
         yield return new WaitForSeconds(_pauseDuration);
         _isMoving = true;
     }
 
+    public void OnImpact()
+    {
+        _isMoving = false;
+        _rb.velocity = Vector2.zero;
+        _rb.angularVelocity = 0f;
+        StartCoroutine(MovementPause());
+    }
 }
