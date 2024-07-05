@@ -752,18 +752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9145436943985659498, guid: 585166b5da4a5ac468f0ed6fdc3d8d3b, type: 3}
-      propertyPath: _mudMult
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145436943985659498, guid: 585166b5da4a5ac468f0ed6fdc3d8d3b, type: 3}
-      propertyPath: _mudModifier
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145436943985659498, guid: 585166b5da4a5ac468f0ed6fdc3d8d3b, type: 3}
-      propertyPath: _reverseModifier
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
