@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5043423786197984970}
   - component: {fileID: 808286448488009501}
   - component: {fileID: 5541946642131147915}
-  - component: {fileID: 3717397850798652252}
+  - component: {fileID: 7133020036026776926}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 150
+  _range: 3
   _pauseDuration: 2
 --- !u!61 &808286448488009501
 BoxCollider2D:
@@ -187,8 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8cda3b55729d24597df15481787f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
---- !u!95 &3717397850798652252
+  _damage: 40
+--- !u!95 &7133020036026776926
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

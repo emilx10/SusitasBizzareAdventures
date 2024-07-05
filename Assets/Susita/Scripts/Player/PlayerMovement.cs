@@ -119,6 +119,11 @@ public class PlayerMovement : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator LerpSpeedMultiplier(float startValue, float endValue, float duration)
     {
         float time = 0f;

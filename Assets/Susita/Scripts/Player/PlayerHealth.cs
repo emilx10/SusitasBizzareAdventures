@@ -9,12 +9,14 @@ public class PlayerHealth : EntityHealth
     [SerializeField] private float _chillTime;
 
     [SerializeField][ReadOnly] private float _heat, _heatImmunity;
-    [SerializeField] private float _restChill, _maxSpeedHeat, _overheatTime, _postOverheat;
+    [SerializeField] private float _restChill, _maxSpeedHeat, _overheatTime, _postOverheat, _smokeMult;
     private float _maxHeat = 100;
 
     [SerializeField] private Image _heatUI;
 
     [SerializeField] private Image _carryUI;
+
+    [SerializeField] private ParticleSystem _smoke;
 
     void Start()
     {
@@ -63,6 +65,9 @@ public class PlayerHealth : EntityHealth
         {
             StartCoroutine(nameof(OverHeat));
         }
+
+        ParticleSystem.EmissionModule e = _smoke.emission;
+        e.rateOverTime = (_heat-_currentHealth)*_smokeMult;
 
         _heat = Mathf.Clamp(_heat, 0, _maxHeat);
         _heatUI.fillAmount = _heat/ _maxHeat;
