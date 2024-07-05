@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class PlayerHealth : EntityHealth
 {
-    [SerializeField] private float _heatDamage, _chillTime, _heatDamageRepeatTime;
+    private PlayerMovement _playerMovement=> GetComponent<PlayerMovement>();
+
+    [SerializeField] private float _chillTime;
+
+    [SerializeField][ReadOnly]private float _heat, _heatImmunity;
+    [SerializeField] private float _restChill, _maxSpeedHeat, _extinguisherChill, _extinguisherImmunityTime, _overheatTime, _postOverheat;
+    private float _maxHeat = 100;
 
     void Start()
     {
         HealPlayer();
-        InvokeRepeating(nameof(OverHeating), 10,1);
+    }
+
+    private void Update()
+    {
+        HandleHeat();
     }
 
     [ContextMenu("Heal")]
@@ -18,23 +28,52 @@ public class PlayerHealth : EntityHealth
         _currentHealth = _maxHealth;
     }
 
-    private void OverHeating()
+    private void HandleHeat()
     {
-       _currentHealth -= _maxHealth * 0.05f;
+        float engineHeat = _playerMovement.GetSpeedPercentage();
+
+        if (_heatImmunity > 0)
+        {
+            _heatImmunity -= Time.deltaTime;
+        }
+
+        if (engineHeat > 0 && _heatImmunity <= 0)
+        {
+            _heat += _maxSpeedHeat * engineHeat * Time.deltaTime;
+        }
+        else
+        {
+            _heat -= _restChill * Time.deltaTime;
+        }
+
+        if (_heat> _maxHeat)
+        {
+            StartCoroutine(nameof(OverHeat));
+        }
+
+        _heat = Mathf.Clamp(_heat, 0, _maxHeat);
     }
+
+    private IEnumerator OverHeat()
+    {
+        float _timeLeft = _overheatTime;
+        _playerMovement.AddSpeedModifier("Heat", 0);
+        while (_timeLeft > 0) 
+        {
+            _timeLeft-=Time.deltaTime;
+            _heat = Mathf.Lerp(_heat, _postOverheat, _overheatTime - _timeLeft);
+            yield return null;
+        }
+        _playerMovement.RemoveSpeedModifier("Heat");
+    } 
+
 
     [ContextMenu("Chill Bruh")]
     public void Chill()
     {
-        CancelInvoke(nameof(OverHeating));
-        InvokeRepeating(nameof(OverHeating), 10, 1);
+        _heat -= _extinguisherChill;
+        _heatImmunity = _extinguisherImmunityTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Tree"))
-        {
-            TakeDamage(5);
-        }
-    }
+    
 }

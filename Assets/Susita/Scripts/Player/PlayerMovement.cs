@@ -46,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = transform.up * _currentSpeed * _movementSpeed * effectiveSpeedMultiplier;
     }
 
+    public float GetSpeedPercentage()
+    {
+        return Mathf.Abs(_currentSpeed)/_maxMovementSpeed;
+    }
+
     private void RotateCar()
     {
         _rb.AddTorque(_horizontal * _turnSpeed * Time.fixedDeltaTime);
