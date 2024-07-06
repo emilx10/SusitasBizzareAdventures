@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Susita/Scenes/Level2.unity
     guid: 565c1296744aa5e489260fb04eca5d20
+  - enabled: 1
+    path: Assets/Susita/Scenes/LevelSelect.unity
+    guid: 90a668ee30f8aae46a550486c238093a
   m_configObjects: {}

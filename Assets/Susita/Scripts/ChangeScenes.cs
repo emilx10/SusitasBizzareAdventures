@@ -13,9 +13,19 @@ public class ChangeScenes : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void Level1()
+    {
+        SceneManager.LoadScene("Level1");
+    }
+
     public void Level2()
     {
         SceneManager.LoadScene("Level2");
+    }
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void LastLevel()
