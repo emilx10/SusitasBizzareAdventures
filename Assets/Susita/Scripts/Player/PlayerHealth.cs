@@ -21,6 +21,8 @@ public class PlayerHealth : EntityHealth
 
     [SerializeField] private ParticleSystem _smoke;
 
+    [SerializeField] private float _speedMultWhenDamaged;
+
     private bool _dead;
 
     [SerializeField] private float _deathDelay;
@@ -131,4 +133,8 @@ public class PlayerHealth : EntityHealth
         SceneManager.LoadScene("EndGameScene");
     }
 
+    public override void OnHit()
+    {
+        _playerMovement.DivideSpeedInstantly(_speedMultWhenDamaged);
+    }
 }

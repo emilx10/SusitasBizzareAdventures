@@ -86,6 +86,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void DivideSpeedInstantly(float mult)
+    {
+        _currentSpeed*=mult;
+    }
+
     public void AddSpeedModifier(string modifierName, float modifierValue)
     {
         if (!_speedModifiers.ContainsKey(modifierName))
