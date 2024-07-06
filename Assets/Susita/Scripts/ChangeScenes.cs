@@ -10,6 +10,6 @@ public class ChangeScenes : MonoBehaviour
 
     public void StartScene()
     {
-        SceneManager.LoadScene("Emil");
+        SceneManager.LoadScene("Level1");
     }
 }
