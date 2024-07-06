@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : EntityHealth
@@ -19,6 +20,10 @@ public class PlayerHealth : EntityHealth
     [SerializeField] private Image _healthUI;
 
     [SerializeField] private ParticleSystem _smoke;
+
+    private bool _dead;
+
+    [SerializeField] private float _deathDelay;
 
     void Start()
     {
@@ -112,6 +117,18 @@ public class PlayerHealth : EntityHealth
     {
         _carryUI.sprite = null;
         _carryUI.gameObject.SetActive(false);
+    }
+
+    public override void Die()
+    {
+        if (_dead) return;
+        _dead = true;
+        Invoke(nameof(DeathScene), _deathDelay);
+    }
+
+    private void DeathScene()
+    {
+        SceneManager.LoadScene("EndGameScene");
     }
 
 }

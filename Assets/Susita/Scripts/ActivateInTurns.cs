@@ -7,18 +7,6 @@ public class ActivateInTurns : MonoBehaviour
     private bool _activated;
     [SerializeField] private float _delay;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCollapse();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartCollapse()
     {
         if (_activated) return;

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public abstract class EntityHealth : MonoBehaviour
 {
@@ -13,9 +10,11 @@ public abstract class EntityHealth : MonoBehaviour
         _currentHealth -= damage;
         if (_currentHealth < 0)
         {
-            SceneManager.LoadScene("EndGameScene");
+            Die();
         }
    }
+
+    public abstract void Die();
 
    public float GetHealthPercentage()
    {
