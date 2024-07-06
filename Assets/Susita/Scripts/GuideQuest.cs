@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GuideQuest : MonoBehaviour
 {
     [SerializeField] private TMP_Text _guideText;
+    [SerializeField] private GameObject _bubbleChatObject;
     [SerializeField] private string _askForHelpText;
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
@@ -28,6 +29,7 @@ public class GuideQuest : MonoBehaviour
         _playerHealth = _gameManager.GetPlayerHealth();
         _player = _playerHealth.transform;
         SetState(new StateFindGuide(this));
+        _bubbleChatObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -100,6 +102,7 @@ public class GuideQuest : MonoBehaviour
 
         public override void OnStart()
         {
+            _guideQuest._bubbleChatObject.SetActive(true);
             _guideQuest._guideText.text = _guideQuest._askForHelpText;
             _guideQuest.SpawnLamb();
             _guideQuest._onUpdateEvent = null;
@@ -122,6 +125,7 @@ public class GuideQuest : MonoBehaviour
         {
             _guideQuest._onUpdateEvent = OnUpdate;
             _guideQuest._guideText.text = string.Empty;
+            _guideQuest._bubbleChatObject.SetActive(false);
             _guideQuest._playerHealth.SetCarry(_guideQuest._lambSprite);
         }
 
@@ -132,6 +136,7 @@ public class GuideQuest : MonoBehaviour
                 _guideQuest.SetState(null); // Quest completed
                 _guideQuest._onUpdateEvent = null;
                 _guideQuest.SpawnExit();
+                _guideQuest._bubbleChatObject.SetActive(true);
                 _guideQuest._guideText.text = _guideQuest._thankForHelpText;
                 _guideQuest._playerHealth.ClearCarry();
             }
