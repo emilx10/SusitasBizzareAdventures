@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Exit"))
         {
-            SceneManager.LoadScene("EndGameScene");
+            SceneManager.LoadScene("Level2");
         }
     }
 

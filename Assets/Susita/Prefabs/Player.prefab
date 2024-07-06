@@ -135,8 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _currentSpeed: 0
-  _movementSpeedAccel: 2.5
-  _movementSpeedLose: 1
+  _movementSpeedAccel: 1.5
+  _movementSpeedLose: 4
   _maxMovementSpeed: 5
   _runOverSpeed: 1
   _reverseModifier: 0.5
@@ -208,7 +208,7 @@ MonoBehaviour:
   _chillTime: 5
   _heat: 0
   _heatImmunity: 0
-  _restChill: 1
+  _restChill: 2
   _maxSpeedHeat: 4
   _overheatTime: 2
   _postOverheat: 60
