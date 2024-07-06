@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - Mud
   - Exit
+  - ExitLevel2
   layers:
   - Default
   - TransparentFX

@@ -177,6 +177,11 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene("Level2");
         }
+
+        if (collision.gameObject.CompareTag("ExitLevel2"))
+        {
+            SceneManager.LoadScene("EndGameScene");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

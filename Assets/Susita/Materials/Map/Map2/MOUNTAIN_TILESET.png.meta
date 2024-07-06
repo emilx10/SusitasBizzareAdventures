@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98053831694c3ce499beca52060b40e0
+      internalID: 598004838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 175
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a8b762b79f3fe4ca31bb5a8a2b4e41
+      internalID: 1467790812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 175
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c217339d111343c47b868f9eaa2290c0
+      internalID: -1906385204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99db5a18b4d4cbc4891ed20b769d0b41
+      internalID: -98283215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 89
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59084e6e330114240acd5688b700009b
+      internalID: -222515415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_5
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 89
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858f8a728f276a347a0b5b9165ea72f1
+      internalID: -1469459923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af66fafa735b91244ac24a9801db8986
+      internalID: -1590033359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOUNTAIN_TILESET_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca9720ee9f13e3428b85bc150b494ef
+      internalID: 349634508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +300,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MOUNTAIN_TILESET_0: 598004838
+      MOUNTAIN_TILESET_1: 1467790812
+      MOUNTAIN_TILESET_2: -1906385204
+      MOUNTAIN_TILESET_3: -98283215
+      MOUNTAIN_TILESET_4: -222515415
+      MOUNTAIN_TILESET_5: -1469459923
+      MOUNTAIN_TILESET_6: -1590033359
+      MOUNTAIN_TILESET_7: 349634508
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
