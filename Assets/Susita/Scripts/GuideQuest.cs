@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GuideQuest : MonoBehaviour
 {
     [SerializeField] private TMP_Text _guideText;
-    [SerializeField] private Image _bubbleText;
     [SerializeField] private string _askForHelpText;
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
@@ -102,7 +101,6 @@ public class GuideQuest : MonoBehaviour
         public override void OnStart()
         {
             _guideQuest._guideText.text = _guideQuest._askForHelpText;
-            _guideQuest._bubbleText.enabled = false;
             _guideQuest.SpawnLamb();
             _guideQuest._onUpdateEvent = null;
             _guideQuest.OnLambCollect = () => _guideQuest.SetState(new StateReturnLambToGuide(_guideQuest));
