@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GuideQuest : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class GuideQuest : MonoBehaviour
         _player = _playerHealth.transform;
         SetState(new StateFindGuide(this));
         _bubbleChatObject.SetActive(false);
+        PlayerPrefs.SetString("Level", "Level1");
     }
 
     // Update is called once per frame

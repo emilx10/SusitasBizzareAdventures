@@ -17,4 +17,9 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Level2");
     }
+
+    public void LastLevel()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
+    }
 }
