@@ -8,12 +8,15 @@ public abstract class EntityHealth : MonoBehaviour
    public void TakeDamage(float damage)
    {
         _currentHealth -= damage;
+        OnHit();
         if (_currentHealth < 0)
         {
             Die();
         }
    }
 
+
+    public abstract void OnHit();
     public abstract void Die();
 
    public float GetHealthPercentage()
