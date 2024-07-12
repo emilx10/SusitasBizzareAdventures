@@ -31,7 +31,6 @@ public class GuideQuest : MonoBehaviour
         _player = _playerHealth.transform;
         SetState(new StateFindGuide(this));
         _bubbleChatObject.SetActive(false);
-        PlayerPrefs.SetString("Level", "Level1");
     }
 
     // Update is called once per frame
