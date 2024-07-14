@@ -133,18 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca5ee01464347941bf284829fddaf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 1
+  settings: {fileID: 11400000, guid: e1d4b866956913c43adf622456f13b3f, type: 2}
   _currentSpeed: 0
-  _movementSpeedAccel: 1.5
-  _movementSpeedLose: 4
-  _maxMovementSpeed: 5
-  _runOverSpeed: 1
-  _reverseModifier: 0.5
-  _mudModifier: 0.3
   _runOverCollider: {fileID: 5283541056863700437}
-  _turnSpeed: 100
-  _turnSpeedLose: 5
-  _maxTurnSpeed: 100
   _exitPoint: {fileID: 0}
 --- !u!61 &8713954775654539866
 BoxCollider2D:
@@ -205,20 +196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 120
   _currentHealth: 0
-  _chillTime: 5
+  playerHealthSettings: {fileID: 11400000, guid: 0159dfe9ad9097f4483f7177bc44f507, type: 2}
   _heat: 0
   _heatImmunity: 0
-  _restChill: 2
-  _maxSpeedHeat: 4
-  _overheatTime: 2
-  _postOverheat: 60
-  _smokeMult: 0.1
   _heatUI: {fileID: 7947766183750455896}
   _carryUI: {fileID: 5990902974814685396}
   _healthUI: {fileID: 1753411453492515686}
   _smoke: {fileID: 8814034778116955929}
-  _speedMultWhenDamaged: 0.1
-  _deathDelay: 0.5
 --- !u!114 &1385243623899711688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10852,8 +10836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752336424443475129}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6497627, y: 1.8915095, z: -10}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6497659, y: 1.8915082, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11057,7 +11041,7 @@ Transform:
   m_GameObject: {fileID: 5076768530513611471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6497627, y: 1.8915095, z: -10}
+  m_LocalPosition: {x: -0.6497659, y: 1.8915082, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

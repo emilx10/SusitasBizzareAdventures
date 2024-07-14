@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +7,19 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
+    [Header("Settings")]
+    [SerializeField] private SOPlayerMovement settings;
+
     [Header("Movement")]
-    [SerializeField] private float _movementSpeed;
     [SerializeField][ReadOnly] private float _currentSpeed;
-    [SerializeField] private float _movementSpeedAccel, _movementSpeedLose, _maxMovementSpeed, _runOverSpeed, _reverseModifier, _mudModifier;
     [SerializeField] private Collider2D _runOverCollider;
+
     [Header("Rotation")]
-    [SerializeField] private float _turnSpeed;
-    [SerializeField] private float _turnSpeedLose, _maxTurnSpeed;
     private float _vertical, _horizontal;
     private float _speedMultiplier = 1f;
     private float _targetSpeedMultiplier = 1f;
     private Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
+
     [SerializeField] private GameObject _exitPoint;
 
     void Start()
@@ -43,41 +43,41 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-        _currentSpeed += _vertical * _movementSpeedAccel * Time.fixedDeltaTime;
-        float effectiveSpeedMultiplier = _speedMultiplier * (_currentSpeed > 0 ? 1 : _reverseModifier);
-        _rb.velocity = transform.up * _currentSpeed * _movementSpeed * effectiveSpeedMultiplier;
+        _currentSpeed += _vertical * settings.movementSpeedAccel * Time.fixedDeltaTime;
+        float effectiveSpeedMultiplier = _speedMultiplier * (_currentSpeed > 0 ? 1 : settings.reverseModifier);
+        _rb.velocity = transform.up * _currentSpeed * settings.movementSpeed * effectiveSpeedMultiplier;
     }
 
     public float GetSpeedPercentage()
     {
-        return Mathf.Abs(_currentSpeed)/_maxMovementSpeed;
+        return Mathf.Abs(_currentSpeed) / settings.maxMovementSpeed;
     }
 
     private void RotateCar()
     {
-        _rb.AddTorque(_horizontal * _turnSpeed * Time.fixedDeltaTime * _speedMultiplier);
+        _rb.AddTorque(_horizontal * settings.turnSpeed * Time.fixedDeltaTime * _speedMultiplier);
     }
 
     private void PlayerRunOver()
     {
-        _runOverCollider.enabled = _currentSpeed >= _runOverSpeed;
+        _runOverCollider.enabled = _currentSpeed >= settings.runOverSpeed;
     }
 
     private void LoseMovementSpeed()
     {
-        if (Mathf.Abs(_currentSpeed) > _maxMovementSpeed)
+        if (Mathf.Abs(_currentSpeed) > settings.maxMovementSpeed)
         {
-            _currentSpeed = Mathf.Sign(_currentSpeed) * _maxMovementSpeed;
+            _currentSpeed = Mathf.Sign(_currentSpeed) * settings.maxMovementSpeed;
         }
         if (_vertical == 0)
         {
             if (_currentSpeed > 1)
             {
-                _currentSpeed -= _movementSpeedLose * Time.deltaTime;
+                _currentSpeed -= settings.movementSpeedLose * Time.deltaTime;
             }
             else if (_currentSpeed < -1)
             {
-                _currentSpeed += _movementSpeedLose * Time.deltaTime;
+                _currentSpeed += settings.movementSpeedLose * Time.deltaTime;
             }
             else
             {
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DivideSpeedInstantly(float mult)
     {
-        _currentSpeed*=mult;
+        _currentSpeed *= mult;
     }
 
     public void AddSpeedModifier(string modifierName, float modifierValue)
@@ -145,11 +145,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void LoseRotation()
     {
-        if (Mathf.Abs(_rb.angularVelocity) > _maxTurnSpeed * _speedMultiplier)
+        if (Mathf.Abs(_rb.angularVelocity) > settings.maxTurnSpeed * _speedMultiplier)
         {
-            _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * _maxTurnSpeed * _speedMultiplier;
+            _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * settings.maxTurnSpeed * _speedMultiplier;
         }
-        _rb.angularDrag = _horizontal == 0 ? _turnSpeedLose : 0;
+        _rb.angularDrag = _horizontal == 0 ? settings.turnSpeedLose : 0;
     }
 
     private void GetInput()
@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Mud"))
         {
-            AddSpeedModifier("Mud", _mudModifier); // Example modifier for mud
+            AddSpeedModifier("Mud", settings.mudModifier); // Example modifier for mud
         }
 
         if (collision.gameObject.CompareTag("Exit"))

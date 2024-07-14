@@ -5,27 +5,18 @@ using UnityEngine.UI;
 
 public class PlayerHealth : EntityHealth
 {
-    private PlayerMovement _playerMovement=> GetComponent<PlayerMovement>();
-
-    [SerializeField] private float _chillTime;
+    [SerializeField] private SOPlayerHealth playerHealthSettings; // Reference to SO
+    private PlayerMovement _playerMovement => GetComponent<PlayerMovement>();
 
     [SerializeField][ReadOnly] private float _heat, _heatImmunity;
-    [SerializeField] private float _restChill, _maxSpeedHeat, _overheatTime, _postOverheat, _smokeMult;
     private float _maxHeat = 100;
 
     [SerializeField] private Image _heatUI;
-
     [SerializeField] private Image _carryUI;
-
     [SerializeField] private Image _healthUI;
-
     [SerializeField] private ParticleSystem _smoke;
 
-    [SerializeField] private float _speedMultWhenDamaged;
-
     private bool _dead;
-
-    [SerializeField] private float _deathDelay;
 
     void Start()
     {
@@ -40,15 +31,15 @@ public class PlayerHealth : EntityHealth
     [ContextMenu("Heal")]
     private void HealPlayer()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = playerHealthSettings.maxHealth;
     }
 
     public void HealPlayerAmount(float amount)
     {
         _currentHealth += amount;
-        if (_currentHealth > _maxHealth) 
+        if (_currentHealth > playerHealthSettings.maxHealth)
         {
-            _currentHealth= _maxHealth;
+            _currentHealth = playerHealthSettings.maxHealth;
         }
     }
 
@@ -63,39 +54,38 @@ public class PlayerHealth : EntityHealth
 
         if (engineHeat > 0 && _heatImmunity <= 0)
         {
-            _heat += _maxSpeedHeat * engineHeat * Time.deltaTime;
+            _heat += playerHealthSettings.maxSpeedHeat * engineHeat * Time.deltaTime;
         }
         else if (engineHeat <= 0)
         {
-            _heat -= _restChill * Time.deltaTime;
+            _heat -= playerHealthSettings.restChill * Time.deltaTime;
         }
 
-        if (_heat> _maxHeat)
+        if (_heat > _maxHeat)
         {
             StartCoroutine(nameof(OverHeat));
         }
 
         ParticleSystem.EmissionModule e = _smoke.emission;
-        e.rateOverTime = (_heat-_currentHealth)*_smokeMult;
+        e.rateOverTime = (_heat - _currentHealth) * playerHealthSettings.smokeMult;
 
         _heat = Mathf.Clamp(_heat, 0, _maxHeat);
-        _heatUI.fillAmount = _heat/ _maxHeat;
-        _healthUI.fillAmount = _currentHealth / _maxHealth;
+        _heatUI.fillAmount = _heat / _maxHeat;
+        _healthUI.fillAmount = _currentHealth / playerHealthSettings.maxHealth;
     }
 
     private IEnumerator OverHeat()
     {
-        float _timeLeft = _overheatTime;
+        float _timeLeft = playerHealthSettings.overheatTime;
         _playerMovement.AddSpeedModifier("Heat", 0);
-        while (_timeLeft > 0) 
+        while (_timeLeft > 0)
         {
-            _timeLeft-=Time.deltaTime;
-            _heat = Mathf.Lerp(_postOverheat, _maxHeat, _timeLeft/ _overheatTime);
+            _timeLeft -= Time.deltaTime;
+            _heat = Mathf.Lerp(playerHealthSettings.postOverheat, _maxHeat, _timeLeft / playerHealthSettings.overheatTime);
             yield return null;
         }
         _playerMovement.RemoveSpeedModifier("Heat");
-    } 
-
+    }
 
     [ContextMenu("Chill Bruh")]
     private void Chill()
@@ -103,7 +93,7 @@ public class PlayerHealth : EntityHealth
         _heat = 0;
     }
 
-    public void ChillAmount(float chillAmount, float immunityTime) 
+    public void ChillAmount(float chillAmount, float immunityTime)
     {
         _heat -= chillAmount;
         _heatImmunity = immunityTime;
@@ -125,7 +115,7 @@ public class PlayerHealth : EntityHealth
     {
         if (_dead) return;
         _dead = true;
-        Invoke(nameof(DeathScene), _deathDelay);
+        Invoke(nameof(DeathScene), playerHealthSettings.deathDelay);
     }
 
     private void DeathScene()
@@ -135,6 +125,6 @@ public class PlayerHealth : EntityHealth
 
     public override void OnHit()
     {
-        _playerMovement.DivideSpeedInstantly(_speedMultWhenDamaged);
+        _playerMovement.DivideSpeedInstantly(playerHealthSettings.speedMultWhenDamaged);
     }
 }
