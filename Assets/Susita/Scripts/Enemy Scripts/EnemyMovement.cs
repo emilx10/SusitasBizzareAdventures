@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollowMovement : MonoBehaviour
+public class EnemyMovementHandler : MonoBehaviour
 {
     private Rigidbody2D _rb => GetComponent<Rigidbody2D>();
 
@@ -10,7 +10,7 @@ public class EnemyFollowMovement : MonoBehaviour
 
     private GameManager _gameManager;
 
-    private PlayerHealth _playerHealth;
+    private PlayerHealthHandler _playerHealth;
 
     [SerializeField] private float _speed = 5f;
 

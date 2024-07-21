@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class LambPickUp : Pickup
 {
-    private GuideQuest _guideQuest;
+    private GuideHandler _guideQuest;
     public override void Collect()
     {
         _guideQuest.OnLambCollect?.Invoke();
         Destroy(gameObject);
     }
 
-    public void SetGuideQuest(GuideQuest guideQuest)
+    public void SetGuideQuest(GuideHandler guideQuest)
     {
         _guideQuest = guideQuest;
     }

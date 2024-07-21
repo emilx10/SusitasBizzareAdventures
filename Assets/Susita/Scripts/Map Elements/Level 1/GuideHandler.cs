@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Cinemachine.DocumentationSortingAttribute;
 
-public class GuideQuest : MonoBehaviour
+public class GuideHandler : MonoBehaviour
 {
     [SerializeField] private TMP_Text _guideText;
     [SerializeField] private GameObject _bubbleChatObject;
@@ -12,7 +12,7 @@ public class GuideQuest : MonoBehaviour
     [SerializeField] private string _thankForHelpText;
     private GameManager _gameManager;
     private Transform _player;
-    private PlayerHealth _playerHealth;
+    private PlayerHealthHandler _playerHealth;
     [SerializeField] private float _range = 5f; // Example range value, you can adjust this
     private Action _onUpdateEvent;
     public Action OnLambCollect;
@@ -65,11 +65,11 @@ public class GuideQuest : MonoBehaviour
 
     private abstract class State
     {
-        protected GuideQuest _guideQuest;
+        protected GuideHandler _guideQuest;
         public abstract void OnStart();
         public abstract void OnUpdate();
 
-        public State(GuideQuest guideQuest)
+        public State(GuideHandler guideQuest)
         {
             _guideQuest = guideQuest;
         }
@@ -77,7 +77,7 @@ public class GuideQuest : MonoBehaviour
 
     private class StateFindGuide : State
     {
-        public StateFindGuide(GuideQuest guideQuest) : base(guideQuest)
+        public StateFindGuide(GuideHandler guideQuest) : base(guideQuest)
         {
         }
 
@@ -97,7 +97,7 @@ public class GuideQuest : MonoBehaviour
 
     private class StateGuidePlayer : State
     {
-        public StateGuidePlayer(GuideQuest guideQuest) : base(guideQuest)
+        public StateGuidePlayer(GuideHandler guideQuest) : base(guideQuest)
         {
         }
 
@@ -118,7 +118,7 @@ public class GuideQuest : MonoBehaviour
 
     private class StateReturnLambToGuide : State
     {
-        public StateReturnLambToGuide(GuideQuest guideQuest) : base(guideQuest)
+        public StateReturnLambToGuide(GuideHandler guideQuest) : base(guideQuest)
         {
         }
 

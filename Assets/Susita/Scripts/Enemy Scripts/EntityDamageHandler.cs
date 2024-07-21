@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamage : EntityDamage
+public class EntityDamageHandler : EntityDamage
 {
-    EnemyFollowMovement _enemy => GetComponent<EnemyFollowMovement>();
+    EnemyMovementHandler _enemy => GetComponent<EnemyMovementHandler>();
 
     protected override void OnImpact()
     {

@@ -6,7 +6,7 @@ public abstract class  EntityDamage : MonoBehaviour
 {
     [SerializeField] protected float _damage;
 
-    PlayerHealth _playerHealth;
+    PlayerHealthHandler _playerHealth;
 
     GameManager _gameManager;
 

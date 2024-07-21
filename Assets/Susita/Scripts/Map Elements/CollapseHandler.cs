@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaveCollapse : MonoBehaviour
+public class CollapseHandler : MonoBehaviour
 {
     [SerializeField] private float _warningTime,_killingDelay, _destroyTime;
     [SerializeField] private ParticleSystem _particleSystem;

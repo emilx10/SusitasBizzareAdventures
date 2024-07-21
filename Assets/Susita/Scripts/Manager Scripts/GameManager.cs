@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private PlayerHealth _player;
+    [SerializeField] private PlayerHealthHandler _player;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
     }
 
-    public PlayerHealth GetPlayerHealth()
+    public PlayerHealthHandler GetPlayerHealth()
     {
         return _player;
     }

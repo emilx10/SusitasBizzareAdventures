@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LavaFlood : MonoBehaviour
+public class LavaHandler : MonoBehaviour
 {
     [SerializeField] private float _growTime;
     [SerializeField] private Transform _killer;

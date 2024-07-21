@@ -6,7 +6,7 @@ public class PlayerAnimations : MonoBehaviour
 {
     private Rigidbody2D _rb => GetComponent<Rigidbody2D>();
     private SpriteRenderer _spriteRenderer=> GetComponent<SpriteRenderer>();
-    private PlayerHealth _playerHealth => GetComponent<PlayerHealth>();
+    private PlayerHealthHandler _playerHealth => GetComponent<PlayerHealthHandler>();
 
     [SerializeField] private float _angularSpeedMin;
 

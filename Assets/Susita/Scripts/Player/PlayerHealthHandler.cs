@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerHealth : EntityHealth
+public class PlayerHealthHandler : EntityHealth
 {
     [SerializeField] private SOPlayerHealth playerHealthSettings; // Reference to SO
-    private PlayerMovement _playerMovement => GetComponent<PlayerMovement>();
+    private PlayerMovementHandler _playerMovement => GetComponent<PlayerMovementHandler>();
 
     [SerializeField][ReadOnly] private float _heat, _heatImmunity;
     private float _maxHeat = 100;

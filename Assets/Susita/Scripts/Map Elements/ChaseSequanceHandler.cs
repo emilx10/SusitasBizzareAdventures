@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateInTurns : MonoBehaviour
+public class ChaseSequanceHandler : MonoBehaviour
 {
     private bool _activated;
     [SerializeField] private float _delay;
