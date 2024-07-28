@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8316896913915802630}
   - component: {fileID: 9145436943985659498}
   - component: {fileID: 8713954775654539866}
-  - component: {fileID: 8362408567963799144}
   - component: {fileID: 1385243623899711688}
   - component: {fileID: 5283541056863700437}
+  - component: {fileID: 4868505600063796766}
   m_Layer: 0
   m_Name: SUSITA03
   m_TagString: Player
@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177378024614559898}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.16468944, w: 0.98634547}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9980343, w: -0.06267062}
+  m_LocalPosition: {x: 0.00000005655539, y: -0.000000013132095, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -41,7 +41,7 @@ Transform:
   - {fileID: 8258920914649004138}
   - {fileID: 7024080153347635982}
   m_Father: {fileID: 1504991425941321567}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -187.186}
 --- !u!212 &2141777338845713497
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,27 +182,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52, y: 0.59100664}
   m_EdgeRadius: 0
---- !u!114 &8362408567963799144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177378024614559898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebb3a8153464bd40af071d7da52c0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 120
-  _currentHealth: 0
-  playerHealthSettings: {fileID: 11400000, guid: 0159dfe9ad9097f4483f7177bc44f507, type: 2}
-  _heat: 0
-  _heatImmunity: 0
-  _heatUI: {fileID: 7947766183750455896}
-  _carryUI: {fileID: 5990902974814685396}
-  _healthUI: {fileID: 1753411453492515686}
-  _smoke: {fileID: 8814034778116955929}
 --- !u!114 &1385243623899711688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +253,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41836518, y: 0.058502197}
   m_EdgeRadius: 0
+--- !u!114 &4868505600063796766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177378024614559898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317a563d9ad091a4ebb0b033bb666403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 120
+  _currentHealth: 0
+  playerHealthSettings: {fileID: 11400000, guid: 0159dfe9ad9097f4483f7177bc44f507, type: 2}
+  _heat: 0
+  _heatImmunity: 0
+  _heatUI: {fileID: 7947766183750455896}
+  _carryUI: {fileID: 5990902974814685396}
+  _healthUI: {fileID: 1753411453492515686}
+  _smoke: {fileID: 8814034778116955929}
 --- !u!1 &1541748292944235252
 GameObject:
   m_ObjectHideFlags: 0
@@ -10836,8 +10836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752336424443475129}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6497659, y: 1.8915082, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.25018963, y: -1.9842899, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11041,7 +11041,7 @@ Transform:
   m_GameObject: {fileID: 5076768530513611471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6497659, y: 1.8915082, z: -10}
+  m_LocalPosition: {x: -0.25018963, y: -1.9842899, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

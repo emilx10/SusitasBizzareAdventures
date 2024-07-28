@@ -5,18 +5,19 @@ using UnityEngine;
 public class CollapseHandler : MonoBehaviour
 {
     [SerializeField] private float _warningTime,_killingDelay, _destroyTime;
-    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private ParticleSystem _warningParticleSystem,_killingParticleSystem;
     [SerializeField] private GameObject _killer;
-    // Start is called before the first frame update
-    void Start()
+
+    public void TriggerCollapse()
     {
         Destroy(gameObject, _destroyTime);
         Invoke(nameof(Collapse), _warningTime);
+        _warningParticleSystem.Play();
     }
 
     private void Collapse()
     {
-        _particleSystem.Play();
+        _killingParticleSystem.Play();
         Invoke(nameof(KILLER), _killingDelay);
     }
 
