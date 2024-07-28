@@ -10,16 +10,21 @@ public class ChangeScenesManager : MonoBehaviour
 
     public void StartScene()
     {
-        SceneManager.LoadScene("Level1");
+        PlayerPrefs.SetInt("Panel", 0);
+        SceneManager.LoadScene("Panels");
     }
 
     public void Level1()
     {
+        PlayerPrefs.SetInt("Panel", 0);
         SceneManager.LoadScene("Level1");
+
     }
 
     public void Level2()
     {
+
+        PlayerPrefs.SetInt("Panel", 3);
         SceneManager.LoadScene("Level2");
     }
 
@@ -31,6 +36,5 @@ public class ChangeScenesManager : MonoBehaviour
     public void LastLevel()
     {
         SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
-        Debug.Log("Im in the Function");
     }
 }
