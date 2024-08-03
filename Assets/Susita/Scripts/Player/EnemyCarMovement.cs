@@ -58,7 +58,7 @@ public class EnemyCarMovement : PlayerMovementHandler
                 else
                 {
                     _onFinishRace?.Invoke();
-                    StopTheCar();
+                    StopCar();
                     CancelInvoke(nameof(CheckIfStuck));
                     Debug.Log("done");
                 }
@@ -84,7 +84,7 @@ public class EnemyCarMovement : PlayerMovementHandler
 
     private void TryReverse()
     {
-        StopTheCar();
+        StopCar();
         CancelInvoke(nameof(CheckIfStuck));
 
         _vertical = -1;
@@ -113,12 +113,18 @@ public class EnemyCarMovement : PlayerMovementHandler
         _stop = false;
     }
 
-    public void StopTheCar()
+    private void StopCar()
     {
         _stop = true;
         _currentSpeed = 0;
         _vertical = 0;
         _horizontal = 0;
+    }
+
+    public void StopTheCar()
+    {
+        StopCar();
+        CancelInvoke(nameof(CheckIfStuck));
     }
 
     private float AngleDifference(float angle1, float angle2)
