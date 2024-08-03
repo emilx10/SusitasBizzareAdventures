@@ -5,24 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementHandler : MonoBehaviour
 {
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
     [Header("Settings")]
     [SerializeField] private SOPlayerMovement settings;
 
     [Header("Movement")]
-    [SerializeField][ReadOnly] private float _currentSpeed;
+    [SerializeField][ReadOnly] protected float _currentSpeed;
     [SerializeField] private Collider2D _runOverCollider;
 
     [Header("Rotation")]
-    private float _vertical, _horizontal;
+    protected float _vertical, _horizontal;
     private float _speedMultiplier = 1f;
     private float _targetSpeedMultiplier = 1f;
     private Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
 
     [SerializeField] private GameObject _exitPoint;
 
-    void Start()
+    protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -152,7 +152,7 @@ public class PlayerMovementHandler : MonoBehaviour
         _rb.angularDrag = _horizontal == 0 ? settings.turnSpeedLose : 0;
     }
 
-    private void GetInput()
+    protected virtual void GetInput()
     {
         _vertical = Input.GetAxis("Vertical");
         _horizontal = -Input.GetAxis("Horizontal");

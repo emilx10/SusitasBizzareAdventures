@@ -25,6 +25,8 @@ public class PlayerAnimations : MonoBehaviour
 
     private PlayerMovementAnimations SelectHealthState()
     {
+        if (_playerHealth == null) return _playerMovementAnimations[0];
+
         float n = _playerHealth.GetHealthPercentage();
         if (n > 0.666f)
         {
