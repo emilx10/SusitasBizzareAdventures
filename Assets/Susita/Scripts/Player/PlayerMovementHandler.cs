@@ -55,7 +55,10 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void RotateCar()
     {
-        _rb.AddTorque(_horizontal * settings.turnSpeed * Time.fixedDeltaTime * _speedMultiplier);
+        if (_currentSpeed != 0)
+        {
+            _rb.AddTorque(_vertical >= 0 ? _horizontal : -_horizontal * settings.turnSpeed * Time.fixedDeltaTime * _speedMultiplier);
+        }
     }
 
     private void PlayerRunOver()
@@ -69,7 +72,7 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             _currentSpeed = Mathf.Sign(_currentSpeed) * settings.maxMovementSpeed;
         }
-        if (_vertical == 0)
+        if (_vertical == 0 || _vertical>0 && _currentSpeed<0 || _vertical < 0 && _currentSpeed > 0)
         {
             if (_currentSpeed > 1)
             {
@@ -149,7 +152,7 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             _rb.angularVelocity = Mathf.Sign(_rb.angularVelocity) * settings.maxTurnSpeed * _speedMultiplier;
         }
-        _rb.angularDrag = _horizontal == 0 ? settings.turnSpeedLose : 0;
+        _rb.angularDrag = (_horizontal == 0 || _currentSpeed==0) ? settings.turnSpeedLose : 0;
     }
 
     protected virtual void GetInput()
