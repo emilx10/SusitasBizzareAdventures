@@ -18,12 +18,10 @@ public class ChangeScenesManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Panel", 0);
         SceneManager.LoadScene("Level1");
-
     }
 
     public void Level2()
     {
-
         PlayerPrefs.SetInt("Panel", 3);
         SceneManager.LoadScene("Level2");
     }
