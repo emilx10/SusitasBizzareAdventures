@@ -198,8 +198,8 @@ MonoBehaviour:
   _playerMovementAnimations:
   - _name: Full Health
     Forward: {fileID: 21300000, guid: d07307aa05a9c3347955d3ade25c722f, type: 3}
-    Left: {fileID: 21300000, guid: 5c5658d53d6b4d840a3ce4991ee760ef, type: 3}
-    Right: {fileID: 21300000, guid: 7eb4d0a1fd97ef4499468da85f03f259, type: 3}
+    Left: {fileID: 21300000, guid: 7eb4d0a1fd97ef4499468da85f03f259, type: 3}
+    Right: {fileID: 21300000, guid: 5c5658d53d6b4d840a3ce4991ee760ef, type: 3}
   - _name: Mid Health
     Forward: {fileID: 21300000, guid: a86684eb71f810b4e8ed8d88062dffa0, type: 3}
     Left: {fileID: 21300000, guid: 6a31b7d202aa5604c95958b9800a2de2, type: 3}
