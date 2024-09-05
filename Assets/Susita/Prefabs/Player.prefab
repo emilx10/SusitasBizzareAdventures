@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8713954775654539866}
   - component: {fileID: 1385243623899711688}
   - component: {fileID: 5283541056863700437}
-  - component: {fileID: 4868505600063796766}
   - component: {fileID: 3977597360699018284}
   - component: {fileID: 1192293394925774890}
   m_Layer: 0
@@ -255,27 +254,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41836518, y: 0.058502197}
   m_EdgeRadius: 0
---- !u!114 &4868505600063796766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177378024614559898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317a563d9ad091a4ebb0b033bb666403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 120
-  _currentHealth: 0
-  playerHealthSettings: {fileID: 11400000, guid: 0159dfe9ad9097f4483f7177bc44f507, type: 2}
-  _heat: 0
-  _heatImmunity: 0
-  _heatUI: {fileID: 7947766183750455896}
-  _carryUI: {fileID: 5990902974814685396}
-  _healthUI: {fileID: 1753411453492515686}
-  _smoke: {fileID: 8814034778116955929}
 --- !u!114 &3977597360699018284
 MonoBehaviour:
   m_ObjectHideFlags: 0
