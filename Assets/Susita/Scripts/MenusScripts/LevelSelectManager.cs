@@ -10,6 +10,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private GameObject lvl1Panel;
     [SerializeField] private GameObject lvl2Panel;
     [SerializeField] private GameObject lvl3Panel;
+    [SerializeField] private GameObject ReturnPanel;
     private int _currentSelectedLevel = 1;
     
 
@@ -50,6 +51,9 @@ public class LevelSelectManager : MonoBehaviour
             case 3:
                 ShowLvl3Panel();
                 break;
+            case 4:
+                ShowReturnPanel();
+                break;
             default:
                 break;
         }
@@ -60,6 +64,7 @@ public class LevelSelectManager : MonoBehaviour
         lvl1Panel.SetActive(true);
         lvl2Panel.SetActive(false);
         lvl3Panel.SetActive(false);
+        ReturnPanel.SetActive(false);
     }
 
     private void ShowLvl2Panel()
@@ -67,11 +72,20 @@ public class LevelSelectManager : MonoBehaviour
         lvl1Panel.SetActive(false);
         lvl2Panel.SetActive(true);
         lvl3Panel.SetActive(false);
+        ReturnPanel.SetActive(false);
     }
     private void ShowLvl3Panel()
     {
         lvl1Panel.SetActive(false);
         lvl2Panel.SetActive(false);
         lvl3Panel.SetActive(true);
+        ReturnPanel.SetActive(false);
+    }
+    private void ShowReturnPanel()
+    {
+        lvl1Panel.SetActive(false);
+        lvl2Panel.SetActive(false);
+        lvl3Panel.SetActive(false);
+        ReturnPanel.SetActive(true);
     }
 }
