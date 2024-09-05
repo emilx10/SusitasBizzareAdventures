@@ -2,31 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+
 public class PanelManager : MonoBehaviour
 {
-    [SerializeField] GameObject panel0;
-    [SerializeField] GameObject panel1;
-    [SerializeField] GameObject panel2;
-    int panelNum;
+    public static int PANEL_VALUE;
+
+    [SerializeField] GameObject[] panels;
+
+    private bool _canPass = false;
+
     private void Awake()
     {
-        panelNum = PlayerPrefs.GetInt("Panel");
-        ChangePanels();
+        CloseAllPanels();
+        TurnCurrentPanelOn();
     }
-    void ChangePanels()
+
+    private IEnumerator Countdown()
     {
-        if (panelNum == 0)
+        yield return new WaitForSeconds(5f);
+        _canPass = true;
+    }
+
+    private void Update()
+    {
+        if (Input.anyKeyDown && _canPass)
         {
-            panel0.SetActive(true);
-        }
-        if (panelNum == 1)
-        {
-            panel1.SetActive(true);
+            _canPass = false;
+            if(PANEL_VALUE == 0)
+            {
+                //level 1
+            }
+            if (PANEL_VALUE == 1)
+            {
+                //level 2 pre
+            }
+            if (PANEL_VALUE == 2)
+            {
+                //level 2 
+            }
+            if (PANEL_VALUE == 3)
+            {
+                //level 3 pre
+            }
+            if (PANEL_VALUE == 4)
+            {
+                //level 3 
+            }
+
+            if (PANEL_VALUE == 5)
+            {
+                //Main Menu
+            }
         }
     }
 
+    void TurnCurrentPanelOn()
+    {
+        panels[PANEL_VALUE].SetActive(true);
+    }
     void CloseAllPanels()
     {
-
+        foreach (var panel in panels) 
+        { 
+            panel.SetActive(false);
+        }
     }
 }

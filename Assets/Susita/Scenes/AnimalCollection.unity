@@ -1072,6 +1072,7 @@ GameObject:
   - component: {fileID: 745874651}
   - component: {fileID: 745874650}
   - component: {fileID: 745874654}
+  - component: {fileID: 745874655}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1179,6 +1180,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0a12b8af6bc294fb16828303d70dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &745874655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745874649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad7156fa5a5c8b4d828ff12f5f22965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalslImages:
+  - {fileID: 477705932}
+  - {fileID: 734869358}
+  - {fileID: 589346831}
+  - {fileID: 2061387625}
+  - {fileID: 1135132312}
+  - {fileID: 60178153}
+  - {fileID: 206145263}
+  - {fileID: 246947989}
+  - {fileID: 573840802}
 --- !u!1 &756506710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,8 +1388,8 @@ RectTransform:
   m_Children:
   - {fileID: 184213700}
   - {fileID: 477705931}
-  - {fileID: 589346830}
   - {fileID: 734869357}
+  - {fileID: 589346830}
   m_Father: {fileID: 745874653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
