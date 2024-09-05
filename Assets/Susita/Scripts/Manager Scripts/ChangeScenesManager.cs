@@ -3,14 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScenesManager : MonoBehaviour
 {
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("StartMenuScene");
-    }
-    public void AnimalCollectionScene()
-    {
-        SceneManager.LoadScene("AnimalCollection");
-    }
     public void EndScene()
     {
         SceneManager.LoadScene("EndGameScene");
@@ -25,11 +17,13 @@ public class ChangeScenesManager : MonoBehaviour
     public void Level1()
     {
         PlayerPrefs.SetInt("Panel", 0);
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level 1 Testing");
+
     }
 
     public void Level2()
     {
+
         PlayerPrefs.SetInt("Panel", 3);
         SceneManager.LoadScene("Level2");
     }
