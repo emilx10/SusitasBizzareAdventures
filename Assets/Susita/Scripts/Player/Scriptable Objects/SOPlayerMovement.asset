@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SOPlayerMovement
   m_EditorClassIdentifier: 
   movementSpeed: 1
-  movementSpeedAccel: 1.5
+  movementSpeedAccel: 3
   movementSpeedLose: 4
   maxMovementSpeed: 5
-  runOverSpeed: 1
+  runOverSpeed: 1.5
   reverseModifier: 0.5
   mudModifier: 0.3
-  turnSpeed: 100
-  turnSpeedLose: 5
-  maxTurnSpeed: 100
+  turnSpeed: 50
+  turnSpeedLose: 10
+  maxTurnSpeed: 60

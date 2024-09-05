@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SOPlayerHealth
   m_EditorClassIdentifier: 
   maxHealth: 120
-  chillTime: 5
-  restChill: 2
-  maxSpeedHeat: 4
-  overheatTime: 2
-  postOverheat: 60
-  smokeMult: 0.1
   speedMultWhenDamaged: 0.1
   deathDelay: 0.5
+  chillTime: 4
+  maxHeat: 100
+  restChill: 7
+  maxSpeedHeat: 4
+  overheatTime: 2
+  postOverheat: 40
+  smokeMult: 0.1
