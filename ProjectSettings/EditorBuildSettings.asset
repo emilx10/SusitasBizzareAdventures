@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Susita/Scenes/EndGameScene.unity
     guid: e8eef30cc2a8b2240a399e5d160c768f
   - enabled: 1
-    path: Assets/Susita/Scenes/Level 1 Testing.unity
+    path: Assets/Susita/Scenes/Unused Scenes/Level 1 Testing.unity
     guid: 23d34003b01dcb645a6569cb88a142a6
   - enabled: 1
     path: Assets/Susita/Scenes/Level2.unity

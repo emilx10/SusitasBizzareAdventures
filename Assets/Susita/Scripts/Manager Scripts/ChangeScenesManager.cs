@@ -3,6 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScenesManager : MonoBehaviour
 {
+
+
+    public void AnimalCollectionScene()
+    {
+        SceneManager.LoadScene("AnimalCollection");
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("StartMenuScene");
+    }
     public void EndScene()
     {
         SceneManager.LoadScene("EndGameScene");

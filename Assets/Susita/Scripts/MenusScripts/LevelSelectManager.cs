@@ -24,42 +24,34 @@ public class LevelSelectManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
-            
-
-            if (_currentSelectedLevel == 1)
-            {
-                _currentSelectedLevel++;
-                ShowLvl2Panel();
-            }
-            else if (_currentSelectedLevel == 2)
-            {
-                _currentSelectedLevel++;
-                ShowLvl3Panel();
-            }
-            else if (_currentSelectedLevel == 3)
-            {
-                _currentSelectedLevel = 1;
-                ShowLvl1Panel();
-            }
+            if (_currentSelectedLevel == 1) _currentSelectedLevel = 4;
+            else _currentSelectedLevel--;
+            ShowPanel(_currentSelectedLevel);
         }
 
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-            if (_currentSelectedLevel == 1)
-            {
-                _currentSelectedLevel = 3;
-                ShowLvl3Panel();
-            }
-            else if (_currentSelectedLevel == 2) 
-            {
-                _currentSelectedLevel--;
+            if (_currentSelectedLevel == 4) _currentSelectedLevel = 1;
+            else _currentSelectedLevel++;
+            ShowPanel(_currentSelectedLevel);
+        }
+    }
+
+    private void ShowPanel(int level)
+    {
+        switch (level)
+        {
+            case 1:
                 ShowLvl1Panel();
-            }
-            else if(_currentSelectedLevel == 3)
-            {
-                _currentSelectedLevel--;
+                break;
+            case 2:
                 ShowLvl2Panel();
-            }
+                break;
+            case 3:
+                ShowLvl3Panel();
+                break;
+            default:
+                break;
         }
     }
 
