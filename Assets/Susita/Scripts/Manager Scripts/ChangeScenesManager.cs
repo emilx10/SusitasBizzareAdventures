@@ -27,7 +27,7 @@ public class ChangeScenesManager : MonoBehaviour
     public void Level1()
     {
         PlayerPrefs.SetInt("Panel", 0);
-        SceneManager.LoadScene("Level 1 Testing");
+        SceneManager.LoadScene("Level 1");
 
     }
 
@@ -35,7 +35,7 @@ public class ChangeScenesManager : MonoBehaviour
     {
 
         PlayerPrefs.SetInt("Panel", 3);
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Level 2");
     }
 
     public void LevelSelect()

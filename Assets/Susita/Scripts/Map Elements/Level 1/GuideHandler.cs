@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,8 +16,9 @@ public class GuideHandler : MonoBehaviour
     private Action _onUpdateEvent;
     public Action OnLambCollect;
     private State _currentState;
-    [SerializeField] private Transform[] _lambLocations;
+    [SerializeField] private List<Transform> _lambLocations;
     [SerializeField] private LambPickUp _lamb; // Ensure these are assigned in the Inspector
+    [SerializeField] private Transform[] _collectableAnimals;
     [SerializeField] private Sprite _lambSprite;
     [SerializeField] private GameObject _exit;
     [SerializeField] private GameObject _exitStone;
@@ -29,6 +31,7 @@ public class GuideHandler : MonoBehaviour
         _player = _playerHealth.transform;
         SetState(new StateFindGuide(this));
         _bubbleChatObject.SetActive(false);
+        RandomizeAnimals();
     }
 
     // Update is called once per frame
@@ -42,9 +45,38 @@ public class GuideHandler : MonoBehaviour
         return Vector2.Distance(_player.position, transform.position) <= _range;
     }
 
+    private void RandomizeAnimals()
+    {
+        RandomizeAnimal(_lamb.transform);
+        foreach (Transform t in _collectableAnimals) 
+        {
+            RandomizeAnimal(t);
+        }
+    }
+
+    private void RandomizeAnimal(Transform Animal)
+    {
+        int r;
+        if (_lambLocations.Count > 1)
+        {
+            r = UnityEngine.Random.Range(0, _lambLocations.Count);
+        }
+        else if (_lambLocations.Count == 1)
+        {
+            r = 0;
+        }
+        else
+        {
+            Debug.LogWarning("Not Enough Locations For All Animals");
+            return;
+        }
+
+        Animal.position = _lambLocations[r].position;
+        _lambLocations.RemoveAt(r);
+    }
+
     private void SpawnLamb()
     {
-        _lamb.transform.position = _lambLocations[UnityEngine.Random.Range(0, _lambLocations.Length)].position;
         _lamb.gameObject.SetActive(true);
         _lamb.SetGuideQuest(this);
     }
