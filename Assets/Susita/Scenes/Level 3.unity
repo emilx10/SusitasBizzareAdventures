@@ -4893,6 +4893,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 974860744038437792, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1728159525119427857, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -4937,10 +4941,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Car
       objectReference: {fileID: 0}
+    - target: {fileID: 5076925085640285107, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076925085640285107, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.35
+      objectReference: {fileID: 0}
     - target: {fileID: 5238012397054913511, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
       propertyPath: _exitPoint
       value: 
       objectReference: {fileID: 1057013985}
+    - target: {fileID: 6589418044260771486, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589418044260771486, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636631851038117907, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636631851038117907, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890319308103202096, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312803989036816564, guid: 5dbefce4834fa824eacb8fdcbffbf01e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11107,7 +11143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1057013987
 SpriteRenderer:
   m_ObjectHideFlags: 0
