@@ -1,23 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitPointLevel3 : MonoBehaviour
 {
-    [SerializeField] GameObject _exitBoulders;
     [SerializeField] GameObject _exitPoint;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyCar"))
+        if (other.CompareTag("Enemy Car"))
         {
-            SpawnExit();
+            SceneManager.LoadScene("EndGameScene");
         }
-    }
 
-    private void SpawnExit()
-    {
-        Destroy(_exitBoulders);
-        _exitPoint.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            //SceneManager.LoadScene();
+        }
     }
 }
