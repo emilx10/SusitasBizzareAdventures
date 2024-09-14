@@ -4,17 +4,23 @@ using UnityEngine.SceneManagement;
 public class ExitPointLevel3 : MonoBehaviour
 {
     [SerializeField] GameObject _exitPoint;
+    [SerializeField] ChangeScenesManager _changeScenesManager;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Enemy Car"))
+        Debug.Log("Outside Player");
+
+        if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("EndGameScene");
+            Debug.Log("Inside Player");
+            _changeScenesManager.ViewPanels(5);
+
         }
 
-        if (other.CompareTag("Player"))
+
+        if (collision.CompareTag("Enemy"))
         {
-            //SceneManager.LoadScene();
+            _changeScenesManager.EndScene();
         }
     }
 }

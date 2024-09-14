@@ -22,6 +22,8 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [SerializeField] private GameObject _exitPoint;
 
+    [SerializeField] ChangeScenesManager _changeScenesManager;
+
     protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -167,7 +169,10 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<Pickup>(out Pickup pickup))
             {
-                pickup.Collect();
+                if (gameObject.CompareTag("Player"))
+                {
+                    pickup.Collect();
+                }
             }
         }
 
@@ -178,13 +183,14 @@ public class PlayerMovementHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Exit"))
         {
-            SceneManager.LoadScene("Level2");
+            _changeScenesManager.ViewPanels(1);
         }
 
         if (collision.gameObject.CompareTag("ExitLevel2"))
         {
-            SceneManager.LoadScene("EndGameScene");
+            _changeScenesManager.ViewPanels(3);
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
