@@ -390,7 +390,7 @@ MonoBehaviour:
   - {fileID: 1268521905}
   - {fileID: 205739570}
   - {fileID: 1149978677}
-  viewDuration: 3
+  viewDuration: 1.5
 --- !u!114 &86564765
 MonoBehaviour:
   m_ObjectHideFlags: 0
