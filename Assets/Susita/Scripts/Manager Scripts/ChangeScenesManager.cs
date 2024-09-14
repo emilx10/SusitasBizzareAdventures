@@ -44,4 +44,8 @@ public class ChangeScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
