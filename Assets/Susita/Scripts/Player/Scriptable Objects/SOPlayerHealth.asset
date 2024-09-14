@@ -19,6 +19,6 @@ MonoBehaviour:
   maxHeat: 100
   restChill: 7
   maxSpeedHeat: 4
-  overheatTime: 2
-  postOverheat: 40
+  overheatTime: 1.5
+  postOverheat: 35
   smokeMult: 0.1
