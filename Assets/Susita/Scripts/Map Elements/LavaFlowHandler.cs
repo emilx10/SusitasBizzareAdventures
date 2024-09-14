@@ -17,6 +17,7 @@ public class LavaFlowHandler : MonoBehaviour
     public void StartFlow()
     {
         _isFlowing = true;
+        _lava.gameObject.SetActive(true);
     }
 
     public void StopFlow()
