@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Susita/Scenes/Panels.unity
     guid: 1f7f71e325f32c14fbb476c92796d67b
+  - enabled: 1
+    path: Assets/Susita/Scenes/Credits.unity
+    guid: 003e0a5ffa07857459df1fc1ac22b9a2
   m_configObjects: {}

@@ -23,14 +23,14 @@ public class LevelSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (_currentSelectedLevel == 1) _currentSelectedLevel = 4;
             else _currentSelectedLevel--;
             ShowPanel(_currentSelectedLevel);
         }
 
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (_currentSelectedLevel == 4) _currentSelectedLevel = 1;
             else _currentSelectedLevel++;
