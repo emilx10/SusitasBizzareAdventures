@@ -20,7 +20,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private float _targetSpeedMultiplier = 1f;
     private Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
 
-    [SerializeField] private GameObject _exitPoint;
+    [SerializeField] private List<GameObject> _exitPoint;
 
     [SerializeField] ChangeScenesManager _changeScenesManager;
 
